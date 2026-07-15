@@ -1,0 +1,22 @@
+node_modules
+dist
+.DS_Store
+server/public
+vite.config.ts.*
+*.tar.gz
+
+# Secrets / local env — never commit
+.env
+.env.capacitor
+.env.local
+cookies.txt
+
+# Local tooling / runtime state
+.claude/
+.wrangler/
+
+# Capacitor: 생성된 네이티브 프로젝트 (capacitor.config.ts + assets/ 로 재생성 가능)
+android/
+ios/
+*.apk
+*.aab

@@ -1,0 +1,7 @@
+[
+  { "id": 1, "name": "Үхрийн стейк", "slug": "beef-steak", "description": "", "imageUrl": "/bars-meat/bm13.jpg", "order": 0, "isActive": true },
+  { "id": 2, "name": "Үхрийн шарлага", "slug": "beef-bbq", "description": "", "imageUrl": "/bars-meat/bm10.jpg", "order": 1, "isActive": true },
+  { "id": 3, "name": "Гахайн гэдэс", "slug": "pork-belly", "description": "", "imageUrl": "/bars-meat/bm5.png", "order": 2, "isActive": true },
+  { "id": 4, "name": "Гахайн хавирга", "slug": "pork-ribs", "description": "", "imageUrl": "/bars-meat/bm1.jpg", "order": 3, "isActive": true },
+  { "id": 5, "name": "Онцгой багц", "slug": "special", "description": "", "imageUrl": "/bars-meat/bm11.webp", "order": 4, "isActive": true }
+]

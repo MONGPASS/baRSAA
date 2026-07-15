@@ -1,0 +1,19 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "vite build",
+  "outputDirectory": "dist/public",
+  "installCommand": "npm install",
+  "rewrites": [
+    { "source": "/api/settings/hero", "destination": "/data/hero.json" },
+    { "source": "/api/settings/footer", "destination": "/data/footer.json" },
+    { "source": "/api/settings/site-name", "destination": "/data/site-name.json" },
+    { "source": "/api/products", "destination": "/data/products.json" },
+    { "source": "/api/categories", "destination": "/data/categories.json" },
+    { "source": "/api/reviews", "destination": "/data/reviews.json" },
+    { "source": "/api/delivery-settings", "destination": "/data/delivery-settings.json" },
+    { "source": "/api/non-delivery-days", "destination": "/data/non-delivery-days.json" },
+    { "source": "/api/navigation", "destination": "/data/navigation.json" },
+    { "source": "/api/user", "destination": "/data/user.json" },
+    { "source": "/((?!data/|bars-meat/|assets/|.*\\.).*)", "destination": "/index.html" }
+  ]
+}

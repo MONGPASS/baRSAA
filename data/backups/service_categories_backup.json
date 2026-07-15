@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Махны дэлгүүр",
+    "description": "Чанартай шинэ мах худалдаалдаг дэлгүүрүүд",
+    "icon_name": "local_dining",
+    "slug": "meat-store",
+    "is_active": true,
+    "created_at": "2025-07-22 01:40:28.611925"
+  },
+  {
+    "id": 2,
+    "name": "Хоолны газар",
+    "description": "Монгол ресторанууд, хоолны газрууд",
+    "icon_name": "restaurant",
+    "slug": "restaurant",
+    "is_active": true,
+    "created_at": "2025-07-22 01:40:28.611925"
+  },
+  {
+    "id": 3,
+    "name": "Карго үйлчилгээ",
+    "description": "Солонгосоос Монгол руу бараа тээвэрлэх үйлчилгээ",
+    "icon_name": "local_shipping",
+    "slug": "cargo",
+    "is_active": true,
+    "created_at": "2025-07-22 01:40:28.611925"
+  },
+  {
+    "id": 4,
+    "name": "Орчуулга",
+    "description": "Солонгос-Монгол хэлний орчуулга, хэлмэрч",
+    "icon_name": "translate",
+    "slug": "translation",
+    "is_active": true,
+    "created_at": "2025-07-22 01:40:28.611925"
+  },
+  {
+    "id": 5,
+    "name": "Айл хөлсөлж өгөх",
+    "description": "Солонгост түрээсийн байр, өрөө хайж байгаа хүмүүст",
+    "icon_name": "apartment",
+    "slug": "apartment",
+    "is_active": true,
+    "created_at": "2025-07-22 01:40:28.611925"
+  },
+  {
+    "id": 6,
+    "name": "Авто засвар",
+    "description": "Монгол автомашины засвар, сэлбэг",
+    "icon_name": "car_repair",
+    "slug": "car-repair",
+    "is_active": true,
+    "created_at": "2025-07-22 01:40:28.611925"
+  },
+  {
+    "id": 7,
+    "name": "Үсчин, гоо сайхан",
+    "description": "Монгол үсчин, гоо сайхны салон",
+    "icon_name": "content_cut",
+    "slug": "beauty-salon",
+    "is_active": true,
+    "created_at": "2025-07-22 01:40:28.611925"
+  },
+  {
+    "id": 8,
+    "name": "Сургалт",
+    "description": "Солонгос хэл болон бусад төрлийн сургалтууд",
+    "icon_name": "school",
+    "slug": "education",
+    "is_active": true,
+    "created_at": "2025-07-22 01:40:28.611925"
+  },
+  {
+    "id": 9,
+    "name": "Эрүүл мэнд",
+    "description": "Эрүүл мэндийн үйлчилгээ, эмнэлэг, эмийн сан",
+    "icon_name": "medical_services",
+    "slug": "health",
+    "is_active": true,
+    "created_at": "2025-07-22 01:40:28.611925"
+  },
+  {
+    "id": 10,
+    "name": "Худалдаа",
+    "description": "Монгол бараа бүтээгдэхүүн худалдаалах дэлгүүрүүд",
+    "icon_name": "store",
+    "slug": "store",
+    "is_active": true,
+    "created_at": "2025-07-22 01:40:28.611925"
+  },
+  {
+    "id": 11,
+    "name": "Хуулийн зөвлөгөө",
+    "description": "Хууль, эрх зүйн туслалцаа, визний асуудал",
+    "icon_name": "gavel",
+    "slug": "legal",
+    "is_active": true,
+    "created_at": "2025-07-22 01:40:28.611925"
+  },
+  {
+    "id": 12,
+    "name": "Бусад",
+    "description": "Бусад төрлийн үйлчилгээ, байгууллагууд",
+    "icon_name": "category",
+    "slug": "other-services",
+    "is_active": true,
+    "created_at": "2025-07-22 01:40:28.611925"
+  }
+]

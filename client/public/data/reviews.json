@@ -1,0 +1,5 @@
+[
+  { "id": 1, "customerName": "Болормаа", "rating": 5, "content": "Мах үнэхээр шинэхэн, хүргэлт хурдан байлаа. Баярлалаа!", "isApproved": true },
+  { "id": 2, "customerName": "Ганбат", "rating": 5, "content": "Чанар нь маш сайхан, гантиг мах нь гайхалтай. Дахин захиална.", "isApproved": true },
+  { "id": 3, "customerName": "Сарантуяа", "rating": 4, "content": "Хавирга нь амттай, савлагаа цэвэрхэн. Сэтгэл хангалуун байна.", "isApproved": true }
+]
