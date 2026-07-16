@@ -13,7 +13,7 @@ function PromoCard({ slide }: { slide: Slide }) {
       {slide?.imageUrl && (
         <img
           src={getFullImageUrl(slide.imageUrl)}
-          alt={slide.title || "Барс Мах"}
+          alt={slide.title || "Марал Мах"}
           className="absolute inset-0 w-full h-full object-cover"
           onError={(e) => handleImageError(e, slide.imageUrl)}
           loading="eager"
@@ -52,7 +52,7 @@ function RecipeCard() {
         Солонгосын аль ч хот руу хүргэнэ
       </h3>
       <p className="relative text-[12.5px] font-semibold text-[#6b5410] leading-[1.5]">
-        Видео жорыг дагаад Барсын хавиргаар гэртээ ресторан шиг хоол хийгээрэй.
+        Видео жорыг дагаад Маралын хавиргаар гэртээ ресторан шиг хоол хийгээрэй.
       </p>
     </div>
   );

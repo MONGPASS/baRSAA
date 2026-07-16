@@ -26,6 +26,7 @@ import {
 import { Truck, Star, ShoppingBag } from "lucide-react";
 import { Review } from "@shared/schema";
 import { getFullImageUrl } from "@/lib/image-utils";
+import { DEMO_MODE } from "@/lib/demo";
 
 export default function HomePage() {
   const [location, setLocation] = useLocation();
@@ -106,7 +107,7 @@ export default function HomePage() {
 
   const handleAddToCartClick = useCallback(
     (product: Product) => {
-      if (!user) {
+      if (!user && !DEMO_MODE) {
         toast({
           title: t.toast.loginRequired,
           description: t.toast.loginRequiredDesc,
@@ -405,7 +406,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-[#F6F4F0] rounded-[20px] p-8 flex flex-col gap-4">
               <div className="text-[22px] font-extrabold tracking-[-.5px]">
-                Барс махын А-гаас Я
+                Марал махын А-гаас Я
               </div>
               <div className="text-[13px] font-semibold text-gray-500">
                 Дэлгүүрийн талаар юу ч асуугаарай
@@ -426,7 +427,7 @@ export default function HomePage() {
                   <div className="flex flex-col gap-2">
                     <div className="text-xl font-extrabold">Мэдэгдэл</div>
                     <div className="text-[13px] font-semibold opacity-90">
-                      Барс махын шинэ мэдээг эндээс шалгаарай
+                      Марал махын шинэ мэдээг эндээс шалгаарай
                     </div>
                   </div>
                   <span className="w-10 h-10 rounded-full bg-white text-[#E8442E] flex items-center justify-center text-base font-extrabold">

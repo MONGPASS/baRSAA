@@ -54,7 +54,7 @@ export function Navbar() {
       try {
         return await apiRequest("GET", "/api/settings/site-name");
       } catch (error) {
-        return { value: "Барс махны дэлгүүр" };
+        return { value: "Марал махны дэлгүүр" };
       }
     },
   });
@@ -118,7 +118,7 @@ export function Navbar() {
           <Link href="/">
             <div className="flex items-baseline gap-1.5 justify-self-center cursor-pointer select-none">
               <span className="text-[26px] sm:text-[34px] font-extrabold text-[#E8442E] tracking-[-1px] leading-none">
-                БАРС
+                Марал
               </span>
               <span className="text-[15px] sm:text-[20px] font-bold text-[#262626] leading-none">
                 махны дэлгүүр

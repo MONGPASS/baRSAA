@@ -22,6 +22,9 @@ export default function ProductDetails() {
   const { addItem } = useCart();
   const { toast } = useToast();
 
+  const isProductLike = (p: any): p is Product =>
+    p && typeof p === "object" && "id" in p && "price" in p && "name" in p;
+
   const {
     data: product,
     isLoading: isProductLoading,
@@ -29,7 +32,20 @@ export default function ProductDetails() {
   } = useQuery<Product>({
     queryKey: [`products`, numericId],
     queryFn: async () => {
-      return await apiRequest("GET", `/api/products/${numericId}`);
+      // Prefer the single-product endpoint (real backend).
+      try {
+        const single = await apiRequest("GET", `/api/products/${numericId}`);
+        if (isProductLike(single)) return single;
+      } catch (error) {
+        // Endpoint unavailable — fall through to the product list.
+      }
+      // Fallback: resolve from the full product list.
+      const list = await apiRequest("GET", "/api/products");
+      const found = Array.isArray(list)
+        ? list.find((p: Product) => p.id === numericId)
+        : null;
+      if (!isProductLike(found)) throw new Error("Product not found");
+      return found;
     },
     enabled: !isNaN(numericId),
   });
@@ -40,9 +56,10 @@ export default function ProductDetails() {
   >({
     queryKey: ["products"],
     queryFn: async () => {
-      return await apiRequest("GET", "/api/products");
+      const list = await apiRequest("GET", "/api/products");
+      return Array.isArray(list) ? list : [];
     },
-    enabled: !!product,
+    enabled: !isNaN(numericId),
   });
 
   // 선택된 카테고리 또는 현재 제품의 카테고리에 따라 제품을 필터링합니다

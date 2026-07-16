@@ -13,6 +13,7 @@ import { formatPrice } from "@/lib/utils";
 import { useQuery } from "@tanstack/react-query";
 import { queryClient } from "../lib/queryClient";
 import { apiRequest } from "@/lib/queryClient";
+import { DEMO_MODE, saveDemoOrder, nextDemoOrderId } from "@/lib/demo";
 import { logger } from "@/lib/logger";
 import { Loader2, LogIn, UserCircle2 } from "lucide-react";
 import { insertOrderSchema, BankAccount } from "@shared/schema";
@@ -75,9 +76,9 @@ export default function Checkout() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [shippingFee, setShippingFee] = useState(0);
 
-  // 로그인 상태 확인 및 리다이렉트
+  // 로그인 상태 확인 및 리다이렉트 (데모에서는 게스트 주문 허용)
   useEffect(() => {
-    if (!isAuthLoading && !user) {
+    if (!isAuthLoading && !user && !DEMO_MODE) {
       toast({
         title: "Нэвтрэх шаардлагатай",
         description:
@@ -186,7 +187,7 @@ export default function Checkout() {
   }, [user, defaultBankAccount, form]);
 
   // Handle successful checkout - redirects to My Page instead of order confirmation
-  const handleCheckoutSuccess = (orderId: number) => {
+  const handleCheckoutSuccess = (orderId: number, customerEmail?: string) => {
     clearCart();
 
     // Invalidate the order history query cache to ensure My Page displays all orders
@@ -194,9 +195,16 @@ export default function Checkout() {
 
     toast({
       title: "Захиалга амжилттай",
-      description:
-        "Таны захиалгыг хүлээн авлаа. Захиалгын түүх руу чиглүүлж байна.",
+      description: "Таны захиалгыг хүлээн авлаа.",
     });
+
+    // Demo (guest) orders have no My Page — show the confirmation instead.
+    if (DEMO_MODE && !user) {
+      setLocation(
+        `/order-confirmation?id=${orderId}&email=${encodeURIComponent(customerEmail || "")}`,
+      );
+      return;
+    }
 
     // Redirect to My Page where user can view all their orders
     setLocation("/my-page");
@@ -257,6 +265,30 @@ export default function Checkout() {
         price: item.price,
       }));
 
+      // Static demo: no order API — persist the order locally and continue.
+      if (DEMO_MODE) {
+        const demoOrder = {
+          id: nextDemoOrderId(),
+          ...orderData,
+          createdAt: new Date().toISOString(),
+          items: items.map((item, index) => ({
+            id: index + 1,
+            productId: item.productId,
+            quantity: item.quantity,
+            price: item.price,
+            product: {
+              id: item.productId,
+              name: item.name,
+              price: item.price,
+              imageUrl: item.imageUrl,
+            },
+          })),
+        };
+        saveDemoOrder(demoOrder);
+        handleCheckoutSuccess(demoOrder.id, data.customerEmail);
+        return;
+      }
+
       const order = await apiRequest("POST", "/api/orders", {
         orderData,
         cartItems: cartItemsForApi,
@@ -287,8 +319,8 @@ export default function Checkout() {
     }
   };
 
-  // 로그인 중이거나 로그인 되지 않은 경우 로딩 화면 표시
-  if (isAuthLoading || !user) {
+  // 로그인 중이거나 로그인 되지 않은 경우 로딩 화면 표시 (데모 제외)
+  if (!DEMO_MODE && (isAuthLoading || !user)) {
     return (
       <div className="min-h-screen bg-background">
         <Navbar />

@@ -22,6 +22,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { useToast } from "@/hooks/use-toast";
+import { DEMO_MODE, getDemoOrder } from "@/lib/demo";
 
 // Define the type for our order with items
 type OrderWithItems = Order & {
@@ -50,7 +51,8 @@ export default function OrderConfirmation() {
     }
   }, [location]);
 
-  // Fetch order data if we have an ID and email
+  // Fetch order data if we have an ID and email.
+  // In the static demo there is no order API — read the order saved locally.
   const {
     data: order,
     error,
@@ -60,6 +62,15 @@ export default function OrderConfirmation() {
     queryKey: ["/api/orders", orderId],
     enabled: Boolean(orderId && email),
     retry: 1,
+    ...(DEMO_MODE
+      ? {
+          queryFn: async () => {
+            const demo = orderId ? getDemoOrder(orderId) : null;
+            if (!demo) throw new Error("Order not found");
+            return demo as unknown as OrderWithItems;
+          },
+        }
+      : {}),
   });
 
   useEffect(() => {
@@ -263,11 +274,10 @@ export default function OrderConfirmation() {
                           {item.product.name}
                         </h4>
                         <p className="text-sm text-muted-foreground">
-                          {item.quantity} × ₩{formatPrice(item.price)}
+                          {item.quantity} × {formatPrice(item.price)}
                         </p>
                       </div>
                       <div className="font-medium text-right">
-                        ₩
                         {formatPrice(
                           parseFloat(item.price.toString()) * item.quantity,
                         )}
@@ -295,13 +305,12 @@ export default function OrderConfirmation() {
                   <div className="flex justify-between items-center">
                     <span className="font-medium">Бүтээгдэхүүний дүн:</span>
                     <span className="font-medium">
-                      ₩{formatPrice(calculateTotal(order.items))}
+                      {formatPrice(calculateTotal(order.items))}
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="font-medium">Хүргэлтийн төлбөр:</span>
                     <span className="font-medium">
-                      ₩
                       {formatPrice(
                         Number(order.totalAmount) - calculateTotal(order.items),
                       )}
@@ -310,7 +319,7 @@ export default function OrderConfirmation() {
                   <div className="border-t pt-2 mt-2 flex justify-between items-center">
                     <span className="font-medium">Нийт дүн:</span>
                     <span className="text-xl font-bold">
-                      ₩{formatPrice(order.totalAmount)}
+                      {formatPrice(order.totalAmount)}
                     </span>
                   </div>
                 </div>

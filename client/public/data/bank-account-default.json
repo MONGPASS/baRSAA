@@ -1,0 +1,8 @@
+{
+  "id": 1,
+  "bankName": "Хаан банк",
+  "accountNumber": "5041-2345-6789",
+  "accountHolder": "Марал Мах ХХК",
+  "isDefault": true,
+  "isActive": true
+}

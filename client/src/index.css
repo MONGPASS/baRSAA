@@ -36,7 +36,7 @@
 
     --radius: 0.5rem;
 
-    /* Барс Мах brand tokens */
+    /* Марал Мах brand tokens */
     --brand-red: #E8442E;
     --brand-red-dark: #C8281E;
     --brand-yellow: #F6C544;
@@ -204,7 +204,7 @@
   animation-play-state: paused;
 }
 
-/* Барс Мах: top notice bar marquee */
+/* Марал Мах: top notice bar marquee */
 @keyframes marquee-x {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }

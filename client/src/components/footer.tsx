@@ -70,7 +70,7 @@ export function Footer() {
           <Link href="/">
             <div className="flex items-baseline gap-1.5 cursor-pointer">
               <span className="text-[26px] font-extrabold text-[#E8442E] tracking-[-.5px]">
-                БАРС
+                МАРАЛ
               </span>
               <span className="text-base font-bold text-white">махны дэлгүүр</span>
             </div>

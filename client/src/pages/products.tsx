@@ -15,6 +15,7 @@ import {
   getLocalizedProductName,
 } from "@/contexts/language-context";
 import { getFullImageUrl } from "@/lib/image-utils";
+import { DEMO_MODE } from "@/lib/demo";
 
 const PRICE_RANGES = [
   { id: "all", label: "Бүх үнэ", min: 0, max: Infinity },
@@ -104,7 +105,7 @@ export default function ProductsPage() {
 
   const handleAddToCartClick = useCallback(
     (product: Product) => {
-      if (!user) {
+      if (!user && !DEMO_MODE) {
         toast({
           title: t.toast.loginRequired,
           description: t.toast.loginRequiredDesc,
@@ -329,7 +330,7 @@ export default function ProductsPage() {
                     </div>
 
                     <div className="flex items-center gap-1.5 mt-1.5 text-[11px] text-gray-400">
-                      <span className="font-semibold">Барс мах</span>
+                      <span className="font-semibold">Марал мах</span>
                       <span>·</span>
                       <span className="flex items-center gap-0.5">
                         <Truck className="h-3 w-3" /> Маргааш хүргэнэ

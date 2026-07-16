@@ -3,10 +3,18 @@
   "buildCommand": "vite build",
   "outputDirectory": "dist/public",
   "installCommand": "npm install",
+  "build": {
+    "env": {
+      "VITE_DEMO_MODE": "1"
+    }
+  },
   "rewrites": [
     { "source": "/api/settings/hero", "destination": "/data/hero.json" },
     { "source": "/api/settings/footer", "destination": "/data/footer.json" },
     { "source": "/api/settings/site-name", "destination": "/data/site-name.json" },
+    { "source": "/api/settings/shipping-fee", "destination": "/data/shipping-fee.json" },
+    { "source": "/api/bank-accounts/default", "destination": "/data/bank-account-default.json" },
+    { "source": "/api/bank-accounts", "destination": "/data/bank-accounts.json" },
     { "source": "/api/products", "destination": "/data/products.json" },
     { "source": "/api/categories", "destination": "/data/categories.json" },
     { "source": "/api/reviews", "destination": "/data/reviews.json" },

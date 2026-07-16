@@ -43,16 +43,18 @@ export default function AuthPage() {
     loginImagesData?.images && loginImagesData.images.length > 0
       ? loginImagesData.images
       : [
-          "/uploads/제목을_입력해주세요_ (2)/001.png",
-          "/uploads/제목을_입력해주세요_ (2)/002.png",
-          "/uploads/제목을_입력해주세요_ (2)/003.png",
-          "/uploads/제목을_입력해주세요_ (2)/004.png",
-          "/uploads/제목을_입력해주세요_ (2)/005.png",
-          "/uploads/제목을_입력해주세요_ (2)/006.png",
-          "/uploads/제목을_입력해주세요_ (2)/007.png",
-          "/uploads/제목을_입력해주세요_ (2)/008.png",
-          "/uploads/제목을_입력해주세요_ (2)/009.png",
-          "/uploads/제목을_입력해주세요_ (2)/010.png",
+          "/bars-meat/bm9.jpg",
+          "/bars-meat/bm8.jpg",
+          "/bars-meat/bm13.jpg",
+          "/bars-meat/bm11.webp",
+          "/bars-meat/bm10.jpg",
+          "/bars-meat/bm12.jpg",
+          "/bars-meat/bm5.png",
+          "/bars-meat/bm1.jpg",
+          "/bars-meat/bm6.jpg",
+          "/bars-meat/bm2.jpg",
+          "/bars-meat/bm7.jpg",
+          "/bars-meat/bm4.jpg",
         ];
 
   // Logic for columns based on current images
@@ -113,7 +115,7 @@ export default function AuthPage() {
       </div>
 
       {/* Dark Gradient Overlay for Readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a4202]/70 via-[#E8442E]/50 to-[#072e01]/80 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-[#C8281E]/55 to-black/75 pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-md px-6 my-10">
@@ -125,9 +127,9 @@ export default function AuthPage() {
         >
           <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight drop-shadow-xl mb-2">
             <img
-              src="/logo-new.png"
-              alt="Арвижих махны дэлгүүр"
-              className="h-16 md:h-24 w-auto object-contain mx-auto"
+              src="/bars-logo.png"
+              alt="Марал махны дэлгүүр"
+              className="h-24 md:h-32 w-auto object-contain mx-auto drop-shadow-lg"
             />
           </h1>
           <p className="text-gray-200 text-sm md:text-base font-medium">

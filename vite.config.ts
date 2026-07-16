@@ -19,6 +19,9 @@ function mockApiPlugin() {
     "/api/settings/hero": "hero.json",
     "/api/settings/footer": "footer.json",
     "/api/settings/site-name": "site-name.json",
+    "/api/settings/shipping-fee": "shipping-fee.json",
+    "/api/bank-accounts": "bank-accounts.json",
+    "/api/bank-accounts/default": "bank-account-default.json",
     "/api/user": "user.json",
   };
   return {
