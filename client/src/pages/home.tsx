@@ -290,8 +290,9 @@ export default function HomePage() {
                         loading="lazy"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-[#262626] sm:text-white font-extrabold text-[10px] sm:text-sm text-center px-1">
-                        {cat.name}
+                      // No photo yet — the name is already shown under the tile.
+                      <div className="w-full h-full flex items-center justify-center text-2xl sm:text-3xl">
+                        🥩
                       </div>
                     )}
                     <div
